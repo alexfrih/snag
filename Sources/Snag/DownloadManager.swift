@@ -132,10 +132,6 @@ final class DownloadManager: ObservableObject {
             "-P", downloadsDir,
         ]
         if let dir = ffmpegDir { args += ["--ffmpeg-location", dir] }
-        let host = (URL(string: job.url)?.host ?? "").lowercased()
-        if host.contains("x.com") || host.contains("twitter.com") {
-            args += ["--no-check-certificates"]
-        }
         args.append(job.url)
         proc.arguments = args
 

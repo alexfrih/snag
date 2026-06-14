@@ -15,7 +15,6 @@ and anything else yt-dlp supports.
 
 - Saves to `~/Downloads` as `<title>.<ext>`, best mp4 when available.
 - `--no-playlist`: a single paste downloads one item, not a whole playlist.
-- `--no-check-certificates` is added only for `x.com` / `twitter.com`.
 - Tools are resolved from Homebrew/miniconda paths (a GUI app has no shell PATH),
   with a login-shell `command -v` fallback. If `yt-dlp` is missing, the popover
   shows the install command.
