@@ -7,7 +7,7 @@ and anything else yt-dlp supports.
 
 ## Download
 
-[**Download Snag**](https://www.alexfrih.com/snag.dmg) (macOS, signed + notarized).
+[**Download Snag**](https://alexfrih.com/snag.dmg) (macOS, signed + notarized).
 Open the disk image and drag Snag to Applications. The app keeps itself up to date
 via Sparkle.
 
