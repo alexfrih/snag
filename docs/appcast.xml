@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Snag</title>
+        <item>
+            <title>0.2.0</title>
+            <pubDate>Wed, 17 Jun 2026 02:48:55 +0200</pubDate>
+            <sparkle:version>0.2.0</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/alexfrih/snag/releases/download/v0.2.0/Snag.zip" length="1237488" type="application/octet-stream" sparkle:edSignature="Iyc/rVmY0SCZVZJ859pP4OGjiX3JQuHMcwuIqEd0arJvnE7WRASQwjcWwbcQwjY2cLbDu3uxZ07dEY6tvXosCA=="/>
+        </item>
+    </channel>
+</rss>
