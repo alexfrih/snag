@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var manager: DownloadManager
+    let onCheckForUpdates: () -> Void
     let onQuit: () -> Void
 
     @State private var urlText = ""
@@ -136,6 +137,13 @@ struct ContentView: View {
                     .foregroundStyle(.secondary)
                     .font(.caption)
             }
+            Button(action: onCheckForUpdates) {
+                Image(systemName: "arrow.triangle.2.circlepath")
+            }
+            .buttonStyle(.plain)
+            .foregroundStyle(.secondary)
+            .font(.caption)
+            .help("Check for Updates…")
             Button("Quit", action: onQuit)
                 .buttonStyle(.plain)
                 .foregroundStyle(.secondary)

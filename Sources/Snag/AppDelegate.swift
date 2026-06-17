@@ -1,6 +1,7 @@
 import AppKit
 import Combine
 import SwiftUI
+import Sparkle
 
 extension Notification.Name {
     static let snagPopoverDidOpen = Notification.Name("snagPopoverDidOpen")
@@ -11,6 +12,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     private var statusItem: NSStatusItem!
     private let popover = NSPopover()
     private var cancellables = Set<AnyCancellable>()
+    private let updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -21,7 +23,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         }
 
         let hosting = NSHostingController(
-            rootView: ContentView(manager: manager, onQuit: { [weak self] in self?.quit() })
+            rootView: ContentView(
+                manager: manager,
+                onCheckForUpdates: { [weak self] in self?.updaterController.checkForUpdates(nil) },
+                onQuit: { [weak self] in self?.quit() }
+            )
         )
         hosting.sizingOptions = [.preferredContentSize]
         popover.contentViewController = hosting

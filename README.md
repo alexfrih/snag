@@ -5,6 +5,12 @@ A tiny macOS menu-bar app: paste a video URL, it downloads to `~/Downloads`.
 Wraps `yt-dlp` (+ `ffmpeg` for merges). Works for X/Twitter, Instagram, YouTube,
 and anything else yt-dlp supports.
 
+## Download
+
+[**Download Snag**](https://www.alexfrih.com/snag.dmg) (macOS, signed + notarized).
+Open the disk image and drag Snag to Applications. The app keeps itself up to date
+via Sparkle.
+
 ## Use
 
 - Click the menu-bar arrow icon.
@@ -19,17 +25,26 @@ and anything else yt-dlp supports.
   with a login-shell `command -v` fallback. If `yt-dlp` is missing, the popover
   shows the install command.
 
-## Build / run
-
-```bash
-scripts/run.sh      # swift build -c release, bundle dist/Snag.app, launch
-```
-
 Requires `yt-dlp` and `ffmpeg`:
 
 ```bash
 brew install yt-dlp ffmpeg
 ```
 
-Menu-bar utility (`LSUIElement`), no Dock icon. Optional launch-at-login via the
-footer toggle (SMAppService).
+Menu-bar utility (`LSUIElement`), no Dock icon. Launch-at-login via the footer
+toggle (SMAppService).
+
+## Build
+
+```bash
+scripts/run.sh      # swift build -c release, bundle dist/Snag.app, launch (dev)
+```
+
+## Release (maintainer)
+
+```bash
+scripts/release.sh         # build, sign (Developer ID), notarize + staple app & dmg
+scripts/publish.sh 0.2.0   # GitHub release (zip) + EdDSA-signed Sparkle appcast -> Pages
+```
+
+Auto-update feed: <https://alexfrih.github.io/snag/appcast.xml>.
